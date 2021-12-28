@@ -1,0 +1,79 @@
+* {
+  /* Estilo geral */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh; /* Altura */
+  background-image: linear-gradient(90deg, #83a4d4, #b6fbff); /* Fundo main */
+}
+
+.memory-game {
+  /* Div section */
+  width: 640px; /* Largura */
+  height: 640px; /* Altura */
+  margin: auto; /* Margem 0 */
+  display: flex; /* Posição */
+  flex-wrap: wrap; /* Posição */
+  perspective: 1000px;/* Efeito 3D */
+  margin-top: 30px;
+}
+
+.memory-card {
+  /* Div pai front e back */
+  width: calc(25% - 10px); /* Calc Largura Cards */
+  height: calc(33.333% - 10px); /* Calc Altura Cards */
+  margin: 5px; /* Margem entre os cards */
+  position: relative; /* Posição */
+  border-radius: 15px; /* Bordas div front/back */
+  transform: scale(1);
+  transform-style: preserve-3d;/* Posicionar o elemento */
+  transition: transform .5s;
+}
+.memory-card:active {
+  /* Transição cards */
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+.memory-card.flip {
+    transform: rotateY(180deg);/* Rotação da carta */
+}
+
+.front-face,
+.back-face {
+  /* Img front e back */
+  width: 100%; /* Largura img */
+  height: 100%; /* Altura img */
+  padding: 20px; /* Distância nas bordas */
+  position: absolute; /* Img fica atrás do card */
+  border-radius: 15px; /* Bordas img */
+  background: #1c7ccc; /* Cor card */
+  backface-visibility: hidden;
+}
+.front-face {
+    transform: rotateY(180deg);
+  }
+
+@media (max-width: 640px) {
+    /* Quebrar aos 640px */
+    .memory-game{
+        width: 500px;
+        height: 550px;
+    }
+}
+@media (max-width: 500px) {
+    /* Quebrar aos 500px */
+    .memory-game{
+        width: 400px;
+        height: 450px;
+    }
+}
+@media (max-width: 400px) {
+    /* Quebrar aos 400px */
+    .memory-game{
+        width: 300px;
+        height: 350px;
+    }
+}
